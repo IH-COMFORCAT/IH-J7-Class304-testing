@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.Optional;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -18,9 +18,10 @@ public class GradeTest {
     @Autowired
     GradeRepository gradeRepository;
 
+
     @AfterEach
     void tearDown() {
-        gradeRepository.deleteAll();
+        //gradeRepository.deleteAll();
     }
 
 
@@ -47,6 +48,19 @@ public class GradeTest {
         Assertions.assertTrue(gradeOptional.isPresent());
 
         assertEquals(95, gradeOptional.get().getScore());
+
+    }
+
+    @Test
+    void findAverageBySectionId_works() {
+
+
+        List<Object[]> result = gradeRepository.findAverageBySectionId();
+        assertEquals(85.0000, result.get(0)[1]);
+        assertEquals("Bases de datos", result.get(0)[0]);
+        assertEquals(79.3333, result.get(1)[1]);
+        assertEquals("Java01", result.get(1)[0]);
+
 
     }
 }
