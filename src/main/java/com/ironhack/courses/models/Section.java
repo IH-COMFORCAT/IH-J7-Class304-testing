@@ -1,9 +1,9 @@
 package com.ironhack.courses.models;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Section {
     @Id
     private String id;
