@@ -56,9 +56,12 @@ public class GradeTest {
 
     @AfterEach
     void tearDown() {
+        /*
+
         courseRepository.deleteAll();
         sectionRepository.deleteAll();
         gradeRepository.deleteAll();
+         */
     }
 
 
