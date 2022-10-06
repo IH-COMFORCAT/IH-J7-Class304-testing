@@ -38,7 +38,8 @@ public class StudentTest {
     @Test
     void invoiceDetails_get_works() {
         Assertions.assertEquals("Matricula 2023", student.getInvoice().getInvoiceReason());
-        invoice.getStudent().getPostalAddress();
+        invoice = invoiceRepository.findById(invoice.getId()).get();
+        Assertions.assertEquals("Asaf", invoice.getStudent().getName());
 
     }
 
