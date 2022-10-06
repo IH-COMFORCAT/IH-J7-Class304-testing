@@ -60,8 +60,7 @@ public class StudentTest {
 
     @Test
     void oneToManyTest_exercises_ok() {
-        List<Exercises> ex = student.getExercises();
-        assertEquals("Java 01", ex.get(0).getTitle());
+        assertEquals(2, exercisesRepository.findByStudent(student).size());
     }
 
 }

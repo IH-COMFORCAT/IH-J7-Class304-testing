@@ -13,7 +13,7 @@ public class Student {
     private Long id;
     private String firstName;
     private String lastName;
-    @OneToMany(mappedBy = "student", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "student", fetch = FetchType.LAZY)
     List<Exercises> exercises;
 
     public Student(String firstName, String lastName, List<Exercises> exercises) {
