@@ -10,9 +10,7 @@ class CoursesApplicationTests {
 	@Test
 	void contextLoads() {
 
-		Student student = new Student(1l, "Jaume", "Sanchez",
-				new Address("Calle Random", 1, 46900, "Malaga"),
-				new Address("Calle La otra", 5, 29770, "Barcelona"));
+
 	}
 
 }

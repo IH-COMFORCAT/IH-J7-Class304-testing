@@ -20,25 +20,54 @@ public class Student {
             @AttributeOverride(name = "city", column = @Column(name = "physical_city"))
     })
     private Address physicalAddress;
+    @OneToOne
+    @JoinColumn(name = "invoice_id")
+    private Invoice invoice;
 
-    public Student(Long id, String name, String lastName, Address postalAddress, Address physicalAddress) {
-        this.id = id;
+    public Student(String name, String lastName, Address postalAddress, Address physicalAddress, Invoice invoice) {
+        this.name = name;
+        this.lastName = lastName;
+        this.postalAddress = postalAddress;
+        this.physicalAddress = physicalAddress;
+        this.invoice = invoice;
+    }
+
+    public Student(String name, String lastName, Address postalAddress, Address physicalAddress) {
         this.name = name;
         this.lastName = lastName;
         this.postalAddress = postalAddress;
         this.physicalAddress = physicalAddress;
     }
 
+    public Student() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
+    public String getLastName() {
+        return lastName;
+    }
+
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public Address getPostalAddress() {
+        return postalAddress;
     }
 
     public void setPostalAddress(Address postalAddress) {
@@ -53,19 +82,13 @@ public class Student {
         this.physicalAddress = physicalAddress;
     }
 
-    public Long getId() {
-        return id;
+    public Invoice getInvoice() {
+        return invoice;
     }
 
-    public String getName() {
-        return name;
+    public void setInvoice(Invoice invoice) {
+        this.invoice = invoice;
     }
 
-    public String getLastName() {
-        return lastName;
-    }
 
-    public Address getPostalAddress() {
-        return postalAddress;
-    }
 }
