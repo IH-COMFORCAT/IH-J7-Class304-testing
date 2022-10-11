@@ -1,5 +1,7 @@
 package com.ironhack.courses.models;
 
+import com.fasterxml.jackson.annotation.*;
+
 import javax.persistence.*;
 
 @Entity
@@ -11,6 +13,7 @@ public class Exercises {
     private Integer score;
     @ManyToOne
     @JoinColumn(name = "student_id")
+    @JsonIgnore
     private Student student;
 
     public Exercises() {

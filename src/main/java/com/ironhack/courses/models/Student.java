@@ -1,8 +1,10 @@
 package com.ironhack.courses.models;
 
+import com.fasterxml.jackson.annotation.*;
 import org.hibernate.annotations.*;
 
 import javax.persistence.*;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import java.util.*;
 
@@ -13,7 +15,7 @@ public class Student {
     private Long id;
     private String firstName;
     private String lastName;
-    @OneToMany(mappedBy = "student", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "student", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     List<Exercises> exercises;
 
     public Student(String firstName, String lastName, List<Exercises> exercises) {
